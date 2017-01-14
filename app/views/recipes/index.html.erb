@@ -5,6 +5,8 @@
   <meta charset="utf-8">
 
   <title>Recipe Book</title>
+
+
   <meta name="description" content="This is a Rails study">
   <meta name="author" content="@flaviojmendes">
   <!--[if lt IE 9]>
@@ -13,13 +15,23 @@
 </head>
 
 <body>
-  <h1>Recipes</h1>
 
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li><%= recipe.name %> </li>
-    <% end %>
-  </ul>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-xs-12">
+        <h1>Recipes</h1>
+      </div>
+    </div>
 
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+        <ul class="list-group">
+          <% @recipes.each do |recipe| %>
+            <li class="list-group-item"><%= recipe.name %> </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
