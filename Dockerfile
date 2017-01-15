@@ -12,4 +12,5 @@ RUN bundle install
 ADD . /myapp
 WORKDIR /myapp
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
+CMD ["rake","db:create"]
 CMD ["rails","server","-b","0.0.0.0"]
