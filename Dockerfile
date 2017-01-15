@@ -7,7 +7,6 @@ RUN mkdir /myapp
 WORKDIR /tmp
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
-COPY Rakefile Rakefile
 RUN bundle install
 RUN rake db:create
 RUN rake db:migrate
