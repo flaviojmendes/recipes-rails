@@ -15,14 +15,14 @@
 <%= f.hidden_field :recipe_id, :value => params[:recipe_id] %>
   <div class="container">
     <div class="row justify-content-md-center">
-        <div class="form-group col-md-8">
+        <div class="form-group col-lg-8">
           <label for="description">Description:</label>
           <%= f.text_area :description, class: "form-control", id: "description" %>
         </div>
     </div>
 
     <div class="row justify-content-md-center">
-      <div class="col-md-8 text-right">
+      <div class="col-lg-8 text-right">
         <%= link_to 'Back', recipe_path(id: params[:recipe_id]), class: "btn btn-danger" %>
         <%= f.submit 'Save', :class => 'btn btn-primary' %>
       </div>

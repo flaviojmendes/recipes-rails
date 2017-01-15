@@ -15,24 +15,24 @@
 <%= f.hidden_field :recipe_id, :value => params[:recipe_id] %>
   <div class="container">
     <div class="row justify-content-md-center">
-        <div class="form-group col-md-8">
+        <div class="form-group col-lg-8">
           <label for="name">Name:</label>
           <%= f.text_field :name, class: "form-control", id: "name" %>
         </div>
     </div>
     <div class="row justify-content-md-center">
-        <div class="form-group col-md-4">
+        <div class="form-group col-lg-4">
           <label for="quantity">Quantity:</label>
           <%= f.number_field :quantity, class: "form-control", id: "quantity" %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-lg-4">
           <label for="quantity">Unit of measurement:</label>
           <%= f.text_field :measure, class: "form-control", id: "measure" %>
         </div>
     </div>
 
     <div class="row justify-content-md-center">
-      <div class="col-md-8 text-right">
+      <div class="col-lg-8 text-right">
         <%= link_to 'Back', recipe_path(id: params[:recipe_id]), class: "btn btn-danger" %>
         <%= f.submit 'Save', :class => 'btn btn-primary' %>
       </div>
