@@ -5,8 +5,15 @@ web:
   ports:
     - "80:3000"
   links:
-    - db
+     - db:sql_srv
+    depends_on:
+      - db
 db:
   image: library/mysql:5.6.22
   ports:
-    - "13306:3306"
+    - "3306:3306"
+  environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      MYSQL_DATABASE:
