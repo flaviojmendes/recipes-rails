@@ -31,16 +31,40 @@
         </div>
       </div>
 
+      <div class="row justify-content-md-center btn-row">
+        <div class="col-md-8 text-right">
+
+          <%= link_to "Add new", new_ingredient_path(recipe_id: @recipe.id) %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ingredientModal">+ Ingredient</button>
+        </div>
+      </div>
       <div class="row justify-content-md-center">
         <div class="col-md-8">
-          <ul class="list-group">
-            <% @recipe.ingredients.each do |ing| %>
-              <li class="list-group-item"><%= ing.name %> </li>
-            <% end %>
-          </ul>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @recipe.ingredients.each.with_index do |ing, index| %>
+              <tr>
+                <th scope="row"><%= index+1 %></th>
+                <td><%= ing.name %></td>
+                <td><%= ing.quantity %></td>
+                <td><%= link_to 'Delete', ing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
 
     </div>
+
   </body>
 </html>

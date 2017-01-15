@@ -13,4 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
+.btn-row {
+  margin-bottom: 5px;
+}
