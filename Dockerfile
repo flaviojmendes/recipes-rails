@@ -11,5 +11,5 @@ RUN bundle install
 
 ADD . /myapp
 WORKDIR /myapp
-RUN RAILS_ENV=production rake db:create db:migrate
+RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 CMD ["rails","server","-b","0.0.0.0"]
