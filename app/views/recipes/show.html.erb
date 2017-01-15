@@ -14,16 +14,33 @@
 
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-md-center">
         <div class="col-xs-12">
           <h1><%= @recipe.name %></h1>
         </div>
       </div>
-      <div class="row">
+      <div class="row justify-content-md-center">
         <div class="col-xs-12"
           <h4><%= @recipe.description %></h4>
         </div>
       </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-xs-12"
+          <h2>Ingredients</h2>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-8">
+          <ul class="list-group">
+            <% @recipe.ingredients.each do |ing| %>
+              <li class="list-group-item"><%= ing.name %> </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

@@ -27,7 +27,7 @@
       <div class="col-md-8">
         <ul class="list-group">
           <% @recipes.each do |recipe| %>
-            <li class="list-group-item"><%= recipe.name %> </li>
+            <li class="list-group-item"><%= link_to recipe.name, recipe %> </li>
           <% end %>
         </ul>
       </div>
