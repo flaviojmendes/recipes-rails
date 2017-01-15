@@ -8,8 +8,6 @@ WORKDIR /tmp
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 RUN bundle install
-RUN rake db:create
-RUN rake db:migrate
 
 ADD . /myapp
 WORKDIR /myapp
