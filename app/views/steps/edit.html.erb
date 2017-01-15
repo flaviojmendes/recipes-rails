@@ -6,28 +6,18 @@
   </div>
   <div class="row justify-content-md-center">
     <div class="col-xs-12">
-      <p class="lead">Add ingredient</p>
+      <p class="lead">Edit step</p>
     </div>
   </div>
 </div>
 
-<%= form_for @ingredient do |f| %>
+<%= form_for @step do |f| %>
 <%= f.hidden_field :recipe_id, :value => params[:recipe_id] %>
   <div class="container">
     <div class="row justify-content-md-center">
         <div class="form-group col-md-8">
-          <label for="name">Name:</label>
-          <%= f.text_field :name, class: "form-control", id: "name" %>
-        </div>
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="form-group col-md-4">
-          <label for="quantity">Quantity:</label>
-          <%= f.number_field :quantity, class: "form-control", id: "quantity" %>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="quantity">Unit of measurement:</label>
-          <%= f.text_field :measure, class: "form-control", id: "measure" %>
+          <label for="description">Description:</label>
+          <%= f.text_area :description, class: "form-control", id: "description" %>
         </div>
     </div>
 

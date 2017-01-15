@@ -19,22 +19,23 @@
     </div>
   </div>
 
+
+
+  <!-- Ingredients -->
+
   <div class="row justify-content-md-center">
     <div class="col-xs-12">
       <h3>Ingredients</h3>
     </div>
   </div>
-
   <div class="row justify-content-md-center btn-row">
-    <div class="col-md-8 text-right">
-
-      <%= link_to "+ Ingredient", new_ingredient_path(recipe_id: @recipe.id), class: "btn btn-primary" %>
-
+    <div class="col-md-8">
+      <%= link_to "<- Back", recipes_path, class: "btn btn-secondary float-left" %>
+      <%= link_to "+ Ingredient", new_ingredient_path(recipe_id: @recipe.id), class: "btn btn-primary float-right" %>
     </div>
   </div>
   <div class="row justify-content-md-center">
     <div class="col-md-8">
-
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -52,6 +53,43 @@
             <td><%= ing.quantity %> <%= ing.measure %></td>
             <td><%= link_to 'Delete', ing, method: :delete, data: { confirm: 'Are you sure?' } %> |
                 <%= link_to 'Edit', edit_ingredient_path(ing, recipe_id: @recipe.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Steps -->
+
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12">
+      <h3>Steps</h3>
+    </div>
+  </div>
+  <div class="row justify-content-md-center btn-row">
+    <div class="col-md-8">
+      <%= link_to "<- Back", recipes_path, class: "btn btn-secondary float-left" %>
+      <%= link_to "+ Step", new_step_path(recipe_id: @recipe.id), class: "btn btn-primary float-right" %>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-8">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Step</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe.steps.each.with_index do |step, index| %>
+          <tr>
+            <th scope="row"><%= index+1 %></th>
+            <td><%= step.description %></td>
+            <td><%= link_to 'Delete', step, method: :delete, data: { confirm: 'Are you sure?' } %> |
+                <%= link_to 'Edit', edit_step_path(step, recipe_id: @recipe.id) %></td>
           </tr>
           <% end %>
         </tbody>

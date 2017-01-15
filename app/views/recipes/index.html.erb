@@ -6,12 +6,38 @@
   </div>
 
   <div class="row justify-content-md-center">
-    <div class="col-md-8">
-      <ul class="list-group">
-        <% @recipes.each do |recipe| %>
-          <li class="list-group-item"><%= link_to recipe.name, recipe %> </li>
-        <% end %>
-      </ul>
+    <div class="col-xs-12">
+      <p id="notice"><%= notice %><%= notice = '' %></p>
     </div>
   </div>
+  <div class="row justify-content-md-center btn-row">
+    <div class="col-md-8">
+      <%= link_to "+ Recipe", new_recipe_path, class: "btn btn-primary float-right" %>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-8">
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipes.each do |recipe| %>
+          <tr>
+            <td><%= link_to recipe.name, recipe %></td>
+            <td><%= recipe.description %></td>
+            <td><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } %> |
+                <%= link_to 'Edit', edit_recipe_path(recipe, id: recipe.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>

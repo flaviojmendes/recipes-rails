@@ -1,24 +1,6 @@
-# README
+# Recipe Book
+#### by @flaviojmendes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This App was implemented as a way to show my knowledge in Rails. I'm not an expert in the language but it's the first application written by me in RoR.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+_It was made from the beginning, so I didn't use any magical tutorial. I've checked the [Official website](http://guides.rubyonrails.org/), this [video](https://www.youtube.com/watch?v=PbuGbLUt6RM) and the powerful [Stackoverflow](http://stackoverflow.com)_
