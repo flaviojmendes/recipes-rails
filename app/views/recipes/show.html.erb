@@ -1,70 +1,62 @@
-<!doctype html>
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12">
+      <h1><%= @recipe.name %></h1>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12">
+      <p class="lead"><%= @recipe.description %></p>
+    </div>
+  </div>
+</div>
 
-    <title>Recipe Book</title>
-    <meta name="description" content="This is a Rails study">
-    <meta name="author" content="@flaviojmendes">
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-  </head>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12">
+      <p id="notice"><%= notice %><%= notice = '' %></p>
+    </div>
+  </div>
 
-  <body>
-    <div class="container">
-      <div class="row justify-content-md-center">
-        <div class="col-xs-12">
-          <h1><%= @recipe.name %></h1>
-        </div>
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="col-xs-12"
-          <h4><%= @recipe.description %></h4>
-        </div>
-      </div>
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12">
+      <h3>Ingredients</h3>
+    </div>
+  </div>
 
-      <div class="row justify-content-md-center">
-        <div class="col-xs-12"
-          <h2>Ingredients</h2>
-        </div>
-      </div>
+  <div class="row justify-content-md-center btn-row">
+    <div class="col-md-8 text-right">
 
-      <div class="row justify-content-md-center btn-row">
-        <div class="col-md-8 text-right">
-
-          <%= link_to "Add new", new_ingredient_path(recipe_id: @recipe.id) %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ingredientModal">+ Ingredient</button>
-        </div>
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="col-md-8">
-
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @recipe.ingredients.each.with_index do |ing, index| %>
-              <tr>
-                <th scope="row"><%= index+1 %></th>
-                <td><%= ing.name %></td>
-                <td><%= ing.quantity %></td>
-                <td><%= link_to 'Delete', ing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <%= link_to "+ Ingredient", new_ingredient_path(recipe_id: @recipe.id), class: "btn btn-primary" %>
 
     </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-8">
 
-  </body>
-</html>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe.ingredients.each.with_index do |ing, index| %>
+          <tr>
+            <th scope="row"><%= index+1 %></th>
+            <td><%= ing.name %></td>
+            <td><%= ing.quantity %> <%= ing.measure %></td>
+            <td><%= link_to 'Delete', ing, method: :delete, data: { confirm: 'Are you sure?' } %> |
+                <%= link_to 'Edit', edit_ingredient_path(ing, recipe_id: @recipe.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

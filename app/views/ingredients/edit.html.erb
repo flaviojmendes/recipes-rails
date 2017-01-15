@@ -1,6 +1,41 @@
-<h1>Editing Ingredient</h1>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12">
+      <h1><%= @recipe.name %></h1>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-xs-12">
+      <p class="lead">Edit ingredient</p>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', ingredient: @ingredient %>
+<%= form_for @ingredient do |f| %>
+<%= f.hidden_field :recipe_id, :value => params[:recipe_id] %>
+  <div class="container">
+    <div class="row justify-content-md-center">
+        <div class="form-group col-md-8">
+          <label for="name">Name:</label>
+          <%= f.text_field :name, class: "form-control", id: "name" %>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="form-group col-md-4">
+          <label for="quantity">Quantity:</label>
+          <%= f.number_field :quantity, class: "form-control", id: "quantity" %>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="quantity">Unit of measurement:</label>
+          <%= f.text_field :measure, class: "form-control", id: "measure" %>
+        </div>
+    </div>
 
-<%= link_to 'Show', @ingredient %> |
-<%= link_to 'Back', ingredients_path %>
+    <div class="row justify-content-md-center">
+      <div class="col-md-4 text-right">
+        <%= link_to 'Back', recipe_path(id: params[:recipe_id]), class: "btn btn-danger" %>
+        <%= f.submit 'Save', :class => 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>
